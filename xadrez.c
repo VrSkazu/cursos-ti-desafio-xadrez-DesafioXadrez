@@ -1,32 +1,72 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+int casastorre = 5;
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+int casasbispo = 3;
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+int casasrainha = 8;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+int casascavalo = 3;
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+void moveratorre(int casas){
+    
+    if(casas <= 0) return;
+    printf("direita\n");
+    moveratorre(casas - 1);
+}
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+void moverbispo(int casasverticais, int casashorizontais){
+    for (int i = 0; i < casasverticais; i++){
+        for (int j = 0; j < casashorizontais; j++){
+            printf("direita\n");
+        }
+        printf("cima\n");
+    }
+    
+}
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+void moverrainha(int casas){
+    if (casas <= 0) return;
+    {
+        printf("esqueda\n");
+        moverrainha(casas - 1);
+    }
+    
+}
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+void movercavalo(){
+    for (int i = 0; i < 3; i++){
+       for (int j = 0; j < 3; j++){
+        if (i == 0 && j == 2){
+            printf("cima\n");
+            printf("cima\n");
+            printf("direita\n");
+            break;
+         } else {
+            continue;
+         }
+        
+       }
+       
+    }
+    
+}
+
+
+int main(){
+    printf("movimento da torre: \n");
+    moveratorre(casastorre);
+
+    printf("\n movimento do bispo na diagonal: \n");
+    moverbispo(5, 1);
+
+    printf("\n movimento da rainha: \n");
+    moverrainha(casasrainha);
+
+    printf("\nmovimento do cavalo: \n");
+    movercavalo();
+
+
 
     return 0;
 }
